@@ -5,17 +5,17 @@ package crawley.james.InitializationLab2;
  */
 public class ThingContainer {
 
-    int size;
     private ColorfulThing[] colorfulThings;
     private int index = 0;
-    //private int poppedIndex;
 
     public ThingContainer (int size) {
-        this.size = size;
         colorfulThings = new ColorfulThing[size];
     }
 
     public ThingContainer (ColorfulThing[] colorfulThings) {
+
+        this.colorfulThings = colorfulThings;
+        index = this.colorfulThings.length;
 
     }
 
@@ -108,8 +108,7 @@ public class ThingContainer {
         for (int i = poppedIndex; i < index - 1; i++) {
             colorfulThings[i] = colorfulThings[i+1];
         }
-        colorfulThings[index - 1] = null;
-        index--;
+        colorfulThings[--index] = null;
 
     }
 
@@ -127,6 +126,9 @@ public class ThingContainer {
         if (isEmpty()) {
             System.out.println("ThingContainer is empty.");
         }
+
     }
+
+
 
 }
